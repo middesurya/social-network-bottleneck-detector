@@ -103,7 +103,7 @@ bottleneck_score = (0.4 × betweenness_centrality)
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/suryamidde/social-network-bottleneck-detector.git
+git clone https://github.com/middesurya/social-network-bottleneck-detector.git
 cd social-network-bottleneck-detector
 ```
 
@@ -323,7 +323,7 @@ MIT License - feel free to use this for your own projects!
 ## 👤 Author
 
 **Surya Midde**
-- GitHub: [@suryamidde](https://github.com/suryamidde)
+- GitHub: [@middesurya](https://github.com/middesurya)
 - LinkedIn: [Surya Midde](https://linkedin.com/in/suryamidde)
 
 ---
