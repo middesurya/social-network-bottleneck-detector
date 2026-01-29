@@ -14,34 +14,19 @@ services:
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
       - NEO4J_DATABASE=${NEO4J_DATABASE:-neo4j}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - REDIS_URL=redis://redis:6379/0
       - DEBUG=true
       - ENVIRONMENT=development
-    depends_on:
-      - redis
     networks:
       - app-network
     restart: unless-stopped
 
-  # Redis for caching
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis-data:/data
-    networks:
-      - app-network
-    restart: unless-stopped
-    command: redis-server --appendonly yes
-
-  # Frontend (for local dev, usually run with npm run dev)
+  # Frontend (for production build)
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - "3000:5173"
     environment:
       - VITE_API_URL=http://localhost:8000
     depends_on:
@@ -52,6 +37,3 @@ services:
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  redis-data:

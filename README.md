@@ -88,7 +88,6 @@ bottleneck_score = (0.4 × betweenness_centrality)
 | **Backend** | Python 3.11+, FastAPI, Pydantic, LangChain |
 | **Database** | Neo4j Aura (Cloud Graph Database) |
 | **AI/NLQ** | OpenAI GPT-4, LangChain Text2Cypher |
-| **Caching** | Redis |
 | **Deployment** | Vercel (frontend), Railway (backend) |
 
 ---
@@ -251,9 +250,6 @@ NEO4J_DATABASE=neo4j
 
 # OpenAI (for NLQ)
 OPENAI_API_KEY=sk-...
-
-# Redis (optional)
-REDIS_URL=redis://localhost:6379
 
 # Frontend
 VITE_API_URL=https://your-backend.railway.app
