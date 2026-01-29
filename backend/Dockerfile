@@ -31,15 +31,11 @@ COPY app/ ./app/
 RUN adduser --disabled-password --gecos '' appuser
 USER appuser
 
-# Expose port
-EXPOSE 8000
+# Railway provides PORT env var - use it, default to 8080
+ENV PORT=8080
+EXPOSE $PORT
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
-
-# Railway provides PORT env var - use it, default to 8000
-ENV PORT=8000
+# Note: Railway handles healthchecks via Settings > Healthcheck Path
 
 # Run the application (use shell form for variable expansion)
 CMD uvicorn app.main:app --host 0.0.0.0 --port $PORT
