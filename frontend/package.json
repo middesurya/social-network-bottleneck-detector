@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/cytoscape": "^3.21.9",
     "@types/react-cytoscapejs": "^1.2.6",
+    "@types/react-dom": "^19.2.3",
     "typescript": "~5.9.3",
     "vite": "^7.2.4"
   },

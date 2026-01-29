@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import CytoscapeComponent from 'react-cytoscapejs';
-import type { Core, ElementDefinition, Stylesheet } from 'cytoscape';
+import type { Core, ElementDefinition } from 'cytoscape';
 import { useStore } from '../store/useStore';
 import type { SubgraphResponse } from '../types';
 
@@ -35,7 +35,7 @@ const getBottleneckColor = (score: number | undefined): string => {
   return '#22c55e'; // low
 };
 
-const stylesheet: Stylesheet[] = [
+const stylesheet: any[] = [
   {
     selector: 'node',
     style: {
@@ -118,7 +118,7 @@ export function NetworkGraph({ data, onNodeSelect }: NetworkGraphProps) {
   ];
 
   // Apply dynamic styles based on data
-  const dynamicStylesheet: Stylesheet[] = [
+  const dynamicStylesheet: any[] = [
     ...stylesheet,
     {
       selector: 'node',
